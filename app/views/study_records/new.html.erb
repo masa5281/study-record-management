@@ -1,0 +1,14 @@
+<h1>学習記録を投稿</h1>
+
+<%= form_with model: @study_record do |f| %>
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div>
+    <%= f.label :content %>
+    <%= f.text_area :content %>
+  </div>
+
+  <%= f.submit %>
+<% end %>
