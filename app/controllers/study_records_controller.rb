@@ -8,8 +8,11 @@ class StudyRecordsController < ApplicationController
 
   def create
     @study_record = StudyRecord.new(study_record_params)
-    @study_record.save
-    redirect_to study_records_path
+    if @study_record.save
+      redirect_to study_records_path
+    else
+      render 'new'
+    end
   end
 
   private
