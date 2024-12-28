@@ -1,5 +1,6 @@
 class StudyRecordsController < ApplicationController
   def index
+    @study_records = StudyRecord.all
   end
 
   def new

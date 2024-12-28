@@ -1,1 +1,17 @@
-一覧
+<h1>学習記録一覧ページ</h1>
+<table>
+  <thead>
+    <tr>
+      <th>ユーザー名</th>
+      <th>学習内容</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @study_records.each do |study_record| %>
+    <tr>
+      <td><%= study_record.name %></td>
+      <td><%= study_record.content %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
