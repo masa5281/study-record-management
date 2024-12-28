@@ -11,7 +11,7 @@ class StudyRecordsController < ApplicationController
     if @study_record.save
       redirect_to study_records_path
     else
-      render 'new'
+      render "new"
     end
   end
 
