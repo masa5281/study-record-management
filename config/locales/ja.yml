@@ -1,0 +1,6 @@
+ja:
+  activerecord:
+    attributes:
+      study_record:
+        name: ユーザー名
+        content: 勉強内容
