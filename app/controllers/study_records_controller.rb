@@ -33,6 +33,12 @@ class StudyRecordsController < ApplicationController
     end
   end
 
+  def destroy
+    @study_record = StudyRecord.find(params[:id])
+    @study_record.destroy
+    redirect_to study_records_path, status: :see_other
+  end
+
   private
   def study_record_params
     params.require(:study_record).permit(:name, :content)
