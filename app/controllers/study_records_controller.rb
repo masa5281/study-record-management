@@ -12,7 +12,7 @@ class StudyRecordsController < ApplicationController
     if @study_record.save
       redirect_to study_records_path
     else
-      render "new"
+      render "new", status: :unprocessable_entity
     end
   end
 
@@ -29,7 +29,7 @@ class StudyRecordsController < ApplicationController
     if @study_record.update(study_record_params)
       redirect_to study_record_path(@study_record)
     else
-      render "edit"
+      render "edit", status: :unprocessable_entity
     end
   end
 
