@@ -4,3 +4,6 @@
   <li>名前：<%= @study_record.name %></li>
   <li>勉強内容：<%= @study_record.content %></li>
 </ul>
+
+<div><%= link_to '一覧ページへ', study_records_path %></div>
+<div><%= link_to '編集ページへ', edit_study_record_path(@study_record) %></div>
