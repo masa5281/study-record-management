@@ -12,8 +12,31 @@ class StudyRecordsController < ApplicationController
     if @study_record.save
       redirect_to study_records_path
     else
-      render "new"
+      render "new", status: :unprocessable_entity
     end
+  end
+
+  def show
+    @study_record = StudyRecord.find(params[:id])
+  end
+
+  def edit
+    @study_record = StudyRecord.find(params[:id])
+  end
+
+  def update
+    @study_record = StudyRecord.find(params[:id])
+    if @study_record.update(study_record_params)
+      redirect_to study_record_path(@study_record)
+    else
+      render "edit", status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @study_record = StudyRecord.find(params[:id])
+    @study_record.destroy
+    redirect_to study_records_path, status: :see_other
   end
 
   private
