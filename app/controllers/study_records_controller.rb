@@ -20,6 +20,19 @@ class StudyRecordsController < ApplicationController
     @study_record = StudyRecord.find(params[:id])
   end
 
+  def edit
+    @study_record = StudyRecord.find(params[:id])
+  end
+
+  def update
+    @study_record = StudyRecord.find(params[:id])
+    if @study_record.update(study_record_params)
+      redirect_to study_record_path(@study_record)
+    else
+      render "edit"
+    end
+  end
+
   private
   def study_record_params
     params.require(:study_record).permit(:name, :content)

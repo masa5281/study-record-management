@@ -5,6 +5,7 @@
       <th>ユーザー名</th>
       <th>学習内容</th>
       <th></th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -13,6 +14,7 @@
       <td><%= study_record.name %></td>
       <td><%= study_record.content %></td>
       <td><%= link_to '詳細', study_record_path(study_record) %></td>
+      <td><%= link_to '編集', edit_study_record_path(study_record) %></td>
     </tr>
     <% end %>
   </tbody>
