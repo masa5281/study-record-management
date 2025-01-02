@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   # registrations_controller.rbで記述した内容を有効化
   devise_for :users, controllers: {
-    registrations: "users/registrations"
+    registrations: "users/registrations",
+    sessions: "users/sessions"
   }
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
