@@ -6,5 +6,6 @@ class CreateStudyRecordTags < ActiveRecord::Migration[7.2]
 
       t.timestamps
     end
+    add_index :study_record_tags, [ :study_record_id, :tag_id ], unique: true
   end
 end

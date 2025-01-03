@@ -16,6 +16,7 @@ ActiveRecord::Schema[7.2].define(version: 2025_01_03_090229) do
     t.bigint "tag_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["study_record_id", "tag_id"], name: "index_study_record_tags_on_study_record_id_and_tag_id", unique: true
     t.index ["study_record_id"], name: "index_study_record_tags_on_study_record_id"
     t.index ["tag_id"], name: "index_study_record_tags_on_tag_id"
   end
