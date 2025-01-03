@@ -16,4 +16,5 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   resources :study_records
+  resources :users, only: %i[show]
 end
