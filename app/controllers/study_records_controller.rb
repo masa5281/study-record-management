@@ -1,4 +1,6 @@
 class StudyRecordsController < ApplicationController
+  before_action :set_current_user
+
   def index
     @study_records = StudyRecord.all
   end
@@ -41,6 +43,10 @@ class StudyRecordsController < ApplicationController
 
   private
   def study_record_params
-    params.require(:study_record).permit(:name, :content)
+    params.require(:study_record).permit(:name, :content, :user_id)
+  end
+
+  def set_current_user
+    @user = current_user
   end
 end

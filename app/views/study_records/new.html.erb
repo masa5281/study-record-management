@@ -10,8 +10,8 @@
 
 <%= form_with model: @study_record do |f| %>
   <div>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.hidden_field :user_id, value: @user.id %>
+    <%= f.hidden_field :name, value: @user.username %>
   </div>
   <div>
     <%= f.label :content %>
