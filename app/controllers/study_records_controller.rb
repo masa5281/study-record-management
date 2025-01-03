@@ -43,7 +43,7 @@ class StudyRecordsController < ApplicationController
 
   private
   def study_record_params
-    params.require(:study_record).permit(:name, :content, :user_id)
+    params.require(:study_record).permit(:name, :content, :user_id, tag_ids: [])
   end
 
   def set_current_user
