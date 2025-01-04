@@ -2,7 +2,7 @@ class StudyRecordsController < ApplicationController
   before_action :set_current_user
 
   def index
-    @study_records = StudyRecord.all
+    @study_records = params[:tag_id].present? ? Tag.find(params[:tag_id]).study_records : StudyRecord.all
   end
 
   def new
@@ -43,7 +43,7 @@ class StudyRecordsController < ApplicationController
 
   private
   def study_record_params
-    params.require(:study_record).permit(:name, :content, :user_id)
+    params.require(:study_record).permit(:name, :content, :user_id, tag_ids: [])
   end
 
   def set_current_user

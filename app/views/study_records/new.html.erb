@@ -18,6 +18,11 @@
     <%= f.text_area :content %>
   </div>
   <div>
+    <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |tag| %>
+      <%= tag.label { tag.check_box + tag.text } %>
+    <% end %>
+  </div>
+  <div>
     <%= f.submit %>
   </div>
 <% end %>
