@@ -1,4 +1,14 @@
 <h1>学習記録一覧ページ</h1>
+
+<%= form_with url: study_records_path, method: :get do %>
+  <%= select_tag :tag_id,
+    options_from_collection_for_select(Tag.all, :id, :name, params[:tag_id]),
+    {
+      prompt: 'タグで絞り込み', # 何も選択していないと表示される値
+      onchange: 'submit(this.form)' # タグを選択するとフォームが送信される。
+    } %>
+<% end %>
+
 <table>
   <thead>
     <tr>
