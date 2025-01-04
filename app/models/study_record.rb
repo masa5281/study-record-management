@@ -4,5 +4,5 @@ class StudyRecord < ApplicationRecord
   has_many :tags, through: :study_record_tags
 
   validates :name, presence: true
-  validates :content, presence: true
+  validates :content, presence: true, length: { maximum: 200 }
 end
