@@ -23,7 +23,7 @@ ActiveRecord::Schema[7.2].define(version: 2025_01_04_063421) do
 
   create_table "study_records", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
-    t.text "content", size: :tiny, null: false
+    t.text "content", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
