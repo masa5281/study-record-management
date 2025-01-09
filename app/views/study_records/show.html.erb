@@ -11,4 +11,6 @@
   </li>
 </ul>
 
-<div><%= link_to '編集ページへ', edit_study_record_path(@study_record) %></div>
+<% if current_user.id == @study_record.user_id %>
+  <div><%= link_to '編集ページへ', edit_study_record_path(@study_record) %></div>
+<% end %>
