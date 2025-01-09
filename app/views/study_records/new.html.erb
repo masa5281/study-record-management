@@ -13,11 +13,11 @@
     <%= f.hidden_field :user_id, value: @user.id %>
     <%= f.hidden_field :name, value: @user.username %>
   </div>
-  <div>
-    <%= f.label :content %>
-    <%= f.text_area :content %>
+  <div class="mb-3">
+    <%= f.label :content, class: 'form-label' %>
+    <%= f.text_area :content, class: 'form-control' %>
   </div>
-  <div>
+  <div class="mb-3">
     <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |tag| %>
       <%= tag.label { tag.check_box + tag.text } %>
     <% end %>
