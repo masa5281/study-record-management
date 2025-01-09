@@ -1,7 +1,7 @@
 class StudyRecordsController < ApplicationController
   before_action :set_current_user
   before_action :set_study_record, only: %i[show edit update destroy]
-  before_action :ensure_current_user, only: %i[edit update]
+  before_action :ensure_current_user, only: %i[edit update destroy]
 
   def index
     @study_records = params[:tag_id].present? ? Tag.find(params[:tag_id]).study_records : StudyRecord.all
