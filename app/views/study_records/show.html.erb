@@ -11,4 +11,7 @@
   </li>
 </ul>
 
-<div><%= link_to '編集ページへ', edit_study_record_path(@study_record) %></div>
+<% if current_user.id == @study_record.user_id %>
+  <div><%= link_to '編集ページへ', edit_study_record_path(@study_record) %></div>
+  <div><%= link_to '学習記録を削除', study_record_path(@study_record), data: { turbo_method: :delete, turbo_confirm: '本当に削除してもよろしいですか？' } %></div>
+<% end %>
