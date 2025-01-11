@@ -11848,6 +11848,16 @@ textarea.form-control-lg {
   position: relative;
 }
 
+#error-explanation {
+  padding: 10px;
+}
+#error-explanation p {
+  margin-bottom: 10px;
+}
+#error-explanation ul {
+  margin-bottom: 0;
+}
+
 .field_with_errors {
   display: contents;
 }

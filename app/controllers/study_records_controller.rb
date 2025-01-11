@@ -17,7 +17,6 @@ class StudyRecordsController < ApplicationController
     if @study_record.save
       redirect_to study_records_path, flash: { success: "学習記録の投稿に成功しました" }
     else
-      flash.now[:danger] = "学習記録の投稿に失敗しました"
       render "new", status: :unprocessable_entity
     end
   end
@@ -32,14 +31,13 @@ class StudyRecordsController < ApplicationController
     if @study_record.update(study_record_params)
       redirect_to study_record_path(@study_record), flash: { success: "学習記録の編集に成功しました" }
     else
-      flash.now[:danger] = "学習記録の編集に失敗しました"
       render "edit", status: :unprocessable_entity
     end
   end
 
   def destroy
     @study_record.destroy
-    redirect_to study_records_path, status: :see_other, flash: { success: "学習記録の削除に失敗しました" }
+    redirect_to study_records_path, status: :see_other, flash: { success: "学習記録の削除に成功しました" }
   end
 
   private

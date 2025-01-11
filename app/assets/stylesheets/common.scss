@@ -1,3 +1,13 @@
 .alert {
   position: relative;
 }
+
+#error-explanation {
+  padding: 10px;
+  p {
+    margin-bottom: 10px;
+  }
+  ul {
+    margin-bottom: 0;
+  }
+}
