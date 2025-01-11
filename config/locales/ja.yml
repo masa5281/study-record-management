@@ -7,8 +7,9 @@ ja:
         name: ユーザー名
         content: 勉強内容
       user:
+        username: ユーザー名
         current_password: "現在のパスワード"
         email: "メールアドレス"
         password: "パスワード"
-        password_confirmation: "確認用パスワード"
+        password_confirmation: "パスワード（確認用）"
         remember_me: "ログインを記憶"

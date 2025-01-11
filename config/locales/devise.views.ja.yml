@@ -5,6 +5,9 @@ ja:
     sessions:
       signed_in: ログインしました。
       signed_out: ログアウトしました。
+    registrations:
+      user:
+        signed_up: ユーザーを作成しました。
   errors:
     messages:
       not_saved:
