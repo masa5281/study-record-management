@@ -1,16 +1,23 @@
-<h2>パスワードをお忘れですか？</h2>
+<section class="user w-50 mx-auto d-flex flex-column justify-content-center">
+  <div class="user__password">
+    <div class="card shadow-sm">
+      <div class="card-header"><h2>パスワード再設定</h2></div>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      <div class="card-body card-body--extend">
+        <%= form_with model: @user, url: user_password_path, local: true, method: :post do |f| %>
+          <%= render "devise/shared/error_messages", resource: resource %>
+          <div class="mb-3">
+            <i class="fa-solid fa-envelope me-1"></i>
+            <%= f.label :email, class: "form-label" %>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+          </div>
+          
+          <div class="actions mb-2">
+            <%= f.submit "メールアドレスへ送信", class: "btn btn-primary" %>
+          </div>
+        <% end %>
+        <%= render "devise/shared/links" %>
+      </div>
+    </div>
   </div>
-
-  <div class="actions">
-    <%= f.submit "メールアドレスへ送信" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>
