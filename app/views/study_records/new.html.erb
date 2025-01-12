@@ -1,22 +1,37 @@
-<h1>学習記録を投稿</h1>
+<div class="w-50 mx-auto d-flex flex-column justify-content-center">
+  <div class="card shadow-sm">
+    <div class="card-header"><h1>学習記録を投稿</h1></div>
 
-<%= render 'shared/error_messages', { object: @study_record } %>
+    <div class="card-body">
+      <%= render 'shared/error_messages', { object: @study_record } %>
 
-<%= form_with model: @study_record do |f| %>
-  <div>
-    <%= f.hidden_field :user_id, value: @user.id %>
-    <%= f.hidden_field :name, value: @user.username %>
+      <%= form_with model: @study_record do |f| %>
+        <div class="mb-4">
+          <%= f.hidden_field :user_id, value: @user.id %>
+          <%= f.hidden_field :name, value: @user.username %>
+        </div>
+
+        <div class="mb-4">
+          <i class="fa-solid fa-pen-to-square me-1"></i><%= f.label :content, class: 'form-label' %>
+          <%= f.text_area :content, class: 'form-control', placeholder: "要点・ひとことメモ" %>
+        </div>
+
+        <div class="mb-4">
+          <p class="mb-2"><i class="fa-solid fa-tag me-1"></i>関連するタグ</p>
+          <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |tag| %>
+            <%= tag.check_box class: "form-check-input" do %>
+              <%= tag.check_box %>
+            <% end %>
+            <%= tag.label class: "form-check-label" do %>
+              <%= tag.text %>
+            <% end %>
+          <% end %>
+        </div>
+        
+        <div>
+          <%= f.submit class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    </div>
   </div>
-  <div class="mb-3">
-    <%= f.label :content, class: 'form-label' %>
-    <%= f.text_area :content, class: 'form-control' %>
-  </div>
-  <div class="mb-3">
-    <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |tag| %>
-      <%= tag.label { tag.check_box + tag.text } %>
-    <% end %>
-  </div>
-  <div>
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>
