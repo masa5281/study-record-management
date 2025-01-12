@@ -11876,3 +11876,7 @@ h2 {
   position: absolute;
   right: 20px;
 }
+
+.user__registration .card-body--extend {
+  padding: 20px 50px;
+}
