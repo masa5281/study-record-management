@@ -11975,6 +11975,11 @@ ul {
   margin-bottom: 0;
 }
 
+.study-record__detail dt {
+  border-left: 5px solid #84D8FF;
+  padding: 3px 10px;
+}
+
 .field_with_errors {
   display: contents;
 }
@@ -11989,7 +11994,7 @@ ul {
 }
 
 .header {
-  background-color: #85d8ff;
+  background-color: #84D8FF;
 }
 .header__nav a {
   color: #fff;

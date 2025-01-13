@@ -3,7 +3,7 @@ source "https://rubygems.org"
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.2.2"
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
-gem "sprockets-rails"
+# gem "sprockets-rails"
 # Use mysql as the database for Active Record
 gem "mysql2", "~> 0.5"
 # Use the Puma web server [https://github.com/puma/puma]
@@ -42,7 +42,7 @@ gem "devise-i18n-views"
 # gem "bootstrap", "~> 5.3.0"
 # gem "jquery-rails"
 # gem "dartsass-rails"
-gem "sassc-rails"
+# gem "sassc-rails"
 gem "jsbundling-rails"
 gem "cssbundling-rails"
 gem "esbuild-rails", "~> 0.1.4"
