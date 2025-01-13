@@ -1,0 +1,20 @@
+@use "var";
+
+.header {
+  background-color: #85d8ff;
+  &__nav {
+    a {
+      color: #fff;
+      text-decoration: none;
+    }
+    &-list {
+      display: flex;
+      padding-left: 0;
+    }
+    &-item {
+      a {
+        color: var.$text-color-black;
+      }
+    }
+  }
+}

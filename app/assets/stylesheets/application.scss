@@ -1,4 +1,7 @@
+@use "reset";
 @use "bootstrap/scss/bootstrap"; // node_moduleから明示的にパスを指定
+@use "var";
 @use "common";
 @use "study_records";
 @use "user";
+@use "header";
