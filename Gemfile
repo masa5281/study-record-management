@@ -43,9 +43,9 @@ gem "devise-i18n-views"
 # gem "jquery-rails"
 # gem "dartsass-rails"
 # gem "sassc-rails"
-gem "jsbundling-rails"
-gem "cssbundling-rails"
-gem "esbuild-rails", "~> 0.1.4"
+# gem "jsbundling-rails"
+# gem "cssbundling-rails"
+# gem "esbuild-rails", "~> 0.1.4"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem

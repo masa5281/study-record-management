@@ -7,11 +7,11 @@
     "@popperjs/core": "^2.11.8",
     "bootstrap": "^5.3.0",
     "esbuild": "^0.14.9",
+    "esbuild-sass-plugin": "^3.3.1",
     "jquery": "^3.7.1",
     "sass": "^1.45.1"
   },
   "scripts": {
-    "build": "esbuild app/javascript/*.* --bundle --sourcemap --outdir=./public/builds",
-    "build:css": "sass ./app/javascript/stylesheets/application.scss ./public/builds/application.css --no-source-map --load-path=node_modules"
+    "build": "node esbuild.config.js"
   }
 }
