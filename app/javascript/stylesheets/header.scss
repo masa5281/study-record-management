@@ -1,0 +1,20 @@
+@use "variables" as vars;
+
+.header {
+  background-color: vars.$primary-color;
+  &__nav {
+    a {
+      color: #fff;
+      text-decoration: none;
+    }
+    &-list {
+      display: flex;
+      padding-left: 0;
+    }
+    &-item {
+      a {
+        color: vars.$text-color-black;
+      }
+    }
+  }
+}

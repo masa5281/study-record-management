@@ -1,0 +1,37 @@
+@use "variables" as vars;
+
+// 共通スタイル
+body {
+  background-color: #f9f9f9;
+  color: vars.$text-color-black;
+}
+h2 {
+  margin-bottom: 0;
+  font-weight: bold;
+  text-align: center;
+}
+ul {
+  margin-bottom: 0;
+}
+
+// ユーティリティクラス
+.alert {
+  position: relative;
+}
+.fa-trash {
+  color: red;
+  &:hover {
+    color: #b31616;
+  }
+}
+
+// バリデーションエラーメッセージ
+#error-explanation {
+  padding: 10px;
+  p {
+    margin-bottom: 10px;
+  }
+  ul {
+    margin-bottom: 0;
+  }
+}

@@ -11965,6 +11965,13 @@ ul {
   position: relative;
 }
 
+.fa-trash {
+  color: red;
+}
+.fa-trash:hover {
+  color: #b31616;
+}
+
 #error-explanation {
   padding: 10px;
 }
@@ -11975,9 +11982,15 @@ ul {
   margin-bottom: 0;
 }
 
-.study-record__detail dt {
+.study-record__desc-ttl {
   border-left: 5px solid #84D8FF;
   padding: 3px 10px;
+}
+.study-record span {
+  padding: 3px;
+}
+.study-record span:not(:last-child) {
+  margin-right: 5px;
 }
 
 .field_with_errors {
