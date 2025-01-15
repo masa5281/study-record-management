@@ -1,9 +1,9 @@
-@use "variables" as vars;
+@use "vars" as *;
 
 // 共通スタイル
 body {
   background-color: #f9f9f9;
-  color: vars.$text-color-black;
+  color: $text-color-black;
 }
 h2 {
   margin-bottom: 0;

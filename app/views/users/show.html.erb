@@ -1,6 +1,16 @@
-<h1>ユーザープロフィール詳細画面</h1>
+<section class="user">
+  <div class="mx-auto text-center w-25">
+    <h2 class="user__ttl mb-5 card p-3 shadow-sm">ユーザー詳細</h2>
 
-<ul>
-  <li>ユーザー名：<%= @user.username %></li>
-  <li>メールアドレス：<%= @user.email %></li>
-</ul>
+    <div class="user__profile mx-auto">
+      <div class="card px-4 py-4 shadow-sm mb-5">
+        <h3 class="user__name fw-bold pb-2 fs-5"><span><i class="fa-solid fa-user fs-5 me-2"></i></span>ユーザー名</h3>
+        <p class="fs-5 mb-0"><%= @user.username %></p>
+      </div>
+      <div class="card px-4 py-4 shadow-sm">
+        <h3 class="user__email fw-bold pb-2 mb-2 fs-5"><span><i class="fa-solid fa-envelope fs-5 me-2"></i></span>メールアドレス</h3>
+        <p class="fs-5 mb-0"><%= @user.email %></p>
+      </div>
+    </div>
+  </div>
+</section>

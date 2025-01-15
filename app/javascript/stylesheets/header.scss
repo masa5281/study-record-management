@@ -1,7 +1,7 @@
-@use "variables" as vars;
+@use "vars" as *;
 
 .header {
-  background-color: vars.$primary-color;
+  background-color: $primary-color;
   &__nav {
     a {
       color: #fff;
@@ -13,7 +13,7 @@
     }
     &-item {
       a {
-        color: vars.$text-color-black;
+        color: $text-color-black;
       }
     }
   }
