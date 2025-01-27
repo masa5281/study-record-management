@@ -5,7 +5,7 @@ class StudyRecordsController < ApplicationController
   before_action :authenticate_user!, only: %i[new create show edit]
 
   def index
-    @study_records = params[:tag_id].present? ? Tag.find(params[:tag_id]).study_records : StudyRecord.all
+    @study_records = params[:tag_id].present? ? Tag.find(params[:tag_id]).study_records.order(created_at: :desc) : StudyRecord.all.order(created_at: :desc)
   end
 
   def new
@@ -15,7 +15,7 @@ class StudyRecordsController < ApplicationController
   def create
     @study_record = StudyRecord.new(study_record_params)
     if @study_record.save
-      redirect_to study_records_path
+      redirect_to study_records_path, flash: { success: "学習記録の投稿に成功しました" }
     else
       render "new", status: :unprocessable_entity
     end
@@ -29,7 +29,7 @@ class StudyRecordsController < ApplicationController
 
   def update
     if @study_record.update(study_record_params)
-      redirect_to study_record_path(@study_record)
+      redirect_to study_record_path(@study_record), flash: { success: "学習記録の編集に成功しました" }
     else
       render "edit", status: :unprocessable_entity
     end
@@ -37,7 +37,7 @@ class StudyRecordsController < ApplicationController
 
   def destroy
     @study_record.destroy
-    redirect_to study_records_path, status: :see_other
+    redirect_to study_records_path, status: :see_other, flash: { success: "学習記録の削除に成功しました" }
   end
 
   private

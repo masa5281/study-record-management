@@ -1,0 +1,17 @@
+{
+  "name": "app",
+  "private": "true",
+  "dependencies": {
+    "@hotwired/stimulus": "^3.0.1",
+    "@hotwired/turbo-rails": "^7.1.0",
+    "@popperjs/core": "^2.11.8",
+    "bootstrap": "^5.3.0",
+    "esbuild": "^0.14.9",
+    "esbuild-sass-plugin": "^3.3.1",
+    "jquery": "^3.7.1",
+    "sass": "^1.45.1"
+  },
+  "scripts": {
+    "build": "node esbuild.config.js"
+  }
+}

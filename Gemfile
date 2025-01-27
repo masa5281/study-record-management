@@ -3,13 +3,13 @@ source "https://rubygems.org"
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.2.2"
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
-gem "sprockets-rails"
+# gem "sprockets-rails"
 # Use mysql as the database for Active Record
 gem "mysql2", "~> 0.5"
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", ">= 5.0"
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
-gem "importmap-rails"
+# gem "importmap-rails"
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
 gem "turbo-rails"
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
@@ -36,10 +36,16 @@ gem "bootsnap", require: false
 
 gem "ostruct"
 gem "ruby-lsp"
-gem "sass-rails"
 gem "rails-i18n"
 gem "devise"
 gem "devise-i18n-views"
+# gem "bootstrap", "~> 5.3.0"
+# gem "jquery-rails"
+# gem "dartsass-rails"
+# gem "sassc-rails"
+# gem "jsbundling-rails"
+# gem "cssbundling-rails"
+# gem "esbuild-rails", "~> 0.1.4"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem

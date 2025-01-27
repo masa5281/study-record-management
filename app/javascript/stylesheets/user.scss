@@ -1,0 +1,18 @@
+@use "vars" as *;
+
+.user {
+  .card-body--extend {
+    padding: 20px 50px;
+  }
+  &__ttl {
+    background-color: $primary-color;
+    color: #fff;
+  }
+  &__profile {
+    max-width: 300px;
+  }
+  &__name,
+  &__email {
+    border-bottom: 2px dashed $primary-color;
+  }
+}

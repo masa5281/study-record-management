@@ -1,6 +1,23 @@
 ja:
   activerecord:
+    models:
+      study_recod: 学習記録
+      user: ユーザ
+      tag: タグ
     attributes:
       study_record:
         name: ユーザー名
         content: 勉強内容
+        tag_ids: タグ
+      user:
+        username: ユーザー名
+        current_password: 現在のパスワード
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: パスワード（確認用）
+        remember_me: ログインを記憶
+      tag:
+        name: タグ名
+  time:
+    formats:
+      default: '%Y/%m/%d %H:%M'

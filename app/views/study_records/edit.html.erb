@@ -1,23 +1,46 @@
-<h1>学習記録の編集画面</h1>
+<section class="study-record">
+  <div class="study-record__edit">
+    <div class="w-50 mx-auto d-flex flex-column justify-content-center">
+      <div class="card shadow-sm">
+        <div class="card-header"><h2>学習記録の編集ページ</h2></div>
 
-<% if @study_record.errors.any? %>
-  <ul>
-    <% @study_record.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-  </ul>
-<% end %>
+        <div class="card-body">
+          <%= render 'shared/error_messages', { object: @study_record } %>
+          <dl>
+            <%= form_with model: @study_record do |f| %>
+              <dt class="study-record__desc-ttl mb-2">
+                <%= f.label :name %>
+              </dt>
+              <dd class="mb-3">
+                <%= f.text_field :name, class: "form-control" %>
+              </dd>
 
-<%= form_with model: @study_record do |f| %>
-  <div>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+              <dt class="study-record__desc-ttl mb-2">
+                <%= f.label :content %>
+              </dt>
+              <dd class="mb-3">
+                <%= f.text_area :content, class: "form-control", rows: 5 %>
+              </dd>
+              
+              <dt class="study-record__desc-ttl mb-2">
+                <%= f.label :tag_ids %>
+              </dt>
+              <dd class="mb-3">
+              <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |tag| %>
+                <%= tag.check_box class: "form-check-input" do %>
+                  <%= tag.check_box %>
+                <% end %>
+                <%= tag.label class: "form-check-label" do %>
+                  <%= tag.text %>
+                <% end %>
+              <% end %>
+              </dd>
+
+              <%= f.submit class: "btn btn-primary" %>
+            <% end %>
+          </dl>
+        </div>
+      </div>
+    </div>
   </div>
-  <div>
-    <%= f.label :content %>
-    <%= f.text_area :content %>
-  </div>
-  <div>
-    <%= f.submit %>
-  </div>
-<% end %>
+</section>
