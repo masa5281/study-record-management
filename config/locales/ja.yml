@@ -13,3 +13,6 @@ ja:
         password: "パスワード"
         password_confirmation: "パスワード（確認用）"
         remember_me: "ログインを記憶"
+  time:
+    formats:
+      default: '%Y/%m/%d %H:%M'

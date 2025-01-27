@@ -5,7 +5,7 @@ class StudyRecordsController < ApplicationController
   before_action :authenticate_user!, only: %i[new create show edit]
 
   def index
-    @study_records = params[:tag_id].present? ? Tag.find(params[:tag_id]).study_records : StudyRecord.all
+    @study_records = params[:tag_id].present? ? Tag.find(params[:tag_id]).study_records.order(created_at: :desc) : StudyRecord.all.order(created_at: :desc)
   end
 
   def new

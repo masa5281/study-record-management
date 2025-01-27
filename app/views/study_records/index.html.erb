@@ -1,31 +1,39 @@
-<h2>学習記録一覧ページ</h2>
+<section class="study-record">
+  <div class="study-record__collection">
+    <div class="w-50 mx-auto">
+      <%= form_with url: study_records_path, class: "mb-4", method: :get do %>
+        <%= select_tag :tag_id,
+          options_from_collection_for_select(Tag.all, :id, :name, params[:tag_id]),
+          {
+            prompt: 'タグで絞り込み', # 何も選択していないと表示される値
+            onchange: 'submit(this.form)', # タグを選択するとフォームが送信される。
+            class: 'form-select'
+          } %>
+      <% end %>
 
-<%= form_with url: study_records_path, method: :get do %>
-  <%= select_tag :tag_id,
-    options_from_collection_for_select(Tag.all, :id, :name, params[:tag_id]),
-    {
-      prompt: 'タグで絞り込み', # 何も選択していないと表示される値
-      onchange: 'submit(this.form)' # タグを選択するとフォームが送信される。
-    } %>
-<% end %>
-
-<table>
-  <thead>
-    <tr>
-      <th>ユーザー名</th>
-      <th>学習内容</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @study_records.each do |study_record| %>
-    <tr>
-      <td><%= study_record.name %></td>
-      <td><%= study_record.content %></td>
-      <td><%= link_to '詳細', study_record_path(study_record) %></td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+      <div>
+        <ul>
+          <% @study_records.each do |study_record| %>
+            <li class="card mb-5 shadow-sm">
+              <%= link_to study_record_path(study_record) do %>
+                <div class="card-body card-body--extend">
+                  <p class="mb-3"><%= study_record.name %></p>
+                  <%= simple_format(study_record.content, class: "mb-3") %>
+                  <p>
+                    <% study_record.tags.each do |tag| %>
+                      <span class="d-inline-block bg-dark-subtle rounded"><%= tag.name %></span>
+                    <% end %>
+                  </p>
+                  <p class="study-record__date"><%= l study_record.created_at %></p>
+                </div>
+                <div class="card-footer">
+                  <p>コメント：〇〇件</p>
+                </div>
+              <% end %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
