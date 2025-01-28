@@ -1,8 +1,7 @@
 class StudyRecordsController < ApplicationController
-  before_action :set_current_user
   before_action :set_study_record, only: %i[show edit update destroy]
   before_action :ensure_current_user, only: %i[edit update destroy]
-  before_action :authenticate_user!, only: %i[new create show edit]
+  before_action :authenticate_user!, only: %i[new create show edit destroy]
 
   def index
     @study_records = params[:tag_id].present? ? Tag.find(params[:tag_id]).study_records.order(created_at: :desc) : StudyRecord.all.order(created_at: :desc)
@@ -44,10 +43,6 @@ class StudyRecordsController < ApplicationController
   private
   def study_record_params
     params.require(:study_record).permit(:name, :content, :user_id, tag_ids: [])
-  end
-
-  def set_current_user
-    @user = current_user
   end
 
   def set_study_record
