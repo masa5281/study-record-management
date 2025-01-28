@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_01_04_215927) do
+ActiveRecord::Schema[7.2].define(version: 2025_01_28_075011) do
+  create_table "comments", charset: "utf8mb4", collation: "utf8mb4_bin", force: :cascade do |t|
+    t.text "comment", null: false
+    t.bigint "user_id", null: false
+    t.bigint "study_record_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["study_record_id"], name: "index_comments_on_study_record_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
   create_table "study_record_tags", charset: "utf8mb4", collation: "utf8mb4_bin", force: :cascade do |t|
     t.bigint "study_record_id", null: false
     t.bigint "tag_id", null: false
@@ -51,6 +61,8 @@ ActiveRecord::Schema[7.2].define(version: 2025_01_04_215927) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  add_foreign_key "comments", "study_records"
+  add_foreign_key "comments", "users"
   add_foreign_key "study_record_tags", "study_records"
   add_foreign_key "study_record_tags", "tags"
   add_foreign_key "study_records", "users"
