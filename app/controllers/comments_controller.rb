@@ -4,7 +4,7 @@ class CommentsController < ApplicationController
     @comment = current_user.comments.new(comment_params)
     @comment.study_record = @study_record
     if @comment.save
-      redirect_to study_record_path(study_record)
+      redirect_to study_record_path(@study_record)
     else
       render "study_records/show", status: :unprocessable_entity
     end
