@@ -16,7 +16,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   resources :study_records do
-    resources :comments, only: %i[create]
+    resources :comments, only: %i[create destroy]
   end
   resources :users, only: %i[show]
 end
