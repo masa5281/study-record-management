@@ -37,12 +37,12 @@
           <%= f.text_area :comment, placeholder: "コメントを書く" %>
           <%= f.submit 'コメントをする' %>
         <% end %>
-
         <ul>
           <% @study_record.comments.each do |comment| %>
           <li>
             <p>ユーザー名：<%= comment.user.username %></p>
-            <p><%= comment.comment %></p>  
+            <p><%= comment.comment %></p>
+            <p><%= l comment.created_at %></p>
           </li>
           <% end %>
         </ul>
