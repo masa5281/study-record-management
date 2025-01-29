@@ -5,6 +5,7 @@
         <div class="card-header"><h2>学習記録の詳細ページ</h2></div>
 
         <div class="card-body">
+          <%= render 'shared/flash' %>
           <dl>
             <dt class="study-record__desc-ttl mb-2">ユーザー名</dt>
             <dd class="mb-3"><%= @study_record.name %></dd>
