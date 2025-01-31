@@ -33,24 +33,12 @@
 
       <div>
         <%= render 'shared/error_messages', object: @comment %>
-        
         <%= form_with model: [@study_record, @comment] do |f| %>
           <%= f.text_area :comment, placeholder: "コメントを書く" %>
           <%= f.submit 'コメントをする' %>
         <% end %>
         <ul>
-          <% @study_record.comments.each do |comment| %>
-          <li>
-            <p>ユーザー名：<%= comment.user.username %></p>
-            <p><%= comment.comment %></p>
-            <p><%= l comment.created_at %></p>
-            <% if current_user.id == comment.user_id %>
-              <%= link_to study_record_comment_path(comment.study_record, comment), data: { turbo_method: :delete, turbo_confirm: '本当に削除してよろしいですか？' } do %>
-                <i class="fa-solid fa-trash" title="投稿の削除"></i>
-              <% end %>
-            <% end %>
-          </li>
-          <% end %>
+          <%= render partial: 'comments/comment', collection: @study_record.comments %>
         </ul>
       </div>
     </div>

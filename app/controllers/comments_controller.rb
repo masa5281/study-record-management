@@ -10,6 +10,21 @@ class CommentsController < ApplicationController
     end
   end
 
+  def edit
+    @comment = current_user.comments.find(params[:id])
+  end
+
+  def update
+    @comment = current_user.comments.find(params[:id])
+    respond_to do |format|
+      if @comment.update(comment_params)
+        format.turbo_stream
+      else
+        format.turbo_stream
+      end
+    end
+  end
+
   def destroy
     @comment = Comment.find(params[:id])
     @comment.destroy
