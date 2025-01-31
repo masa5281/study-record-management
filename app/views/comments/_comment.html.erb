@@ -1,15 +1,19 @@
 <%= turbo_frame_tag dom_id(comment) do %>
-  <li>
-    <p>ユーザー名：<%= comment.user.username %></p>
-      <p><%= comment.comment %></p>
-      <% if current_user.id == comment.user_id %>
+  <li class="study-record__comment-item mb-4 list-group-item rounded">
+    <p class="study-record__comment-name border-bottom mb-2 pb-1"><%= comment.user.username %></p>
+    <%= simple_format(comment.comment, class: "study-record__comment-content") %>
+    
+    <% if current_user.id == comment.user_id %>
+      <div class="study-record__comment-icon">
         <%= link_to edit_study_record_comment_path(comment.study_record, comment) do %>
           <i class="fa-solid fa-pen-to-square fa-lg" title="投稿の編集"></i>
         <% end %>
         <%= link_to study_record_comment_path(comment.study_record, comment), data: { turbo_method: :delete, turbo_confirm: '本当に削除してよろしいですか？' } do %>
           <i class="fa-solid fa-trash" title="投稿の削除"></i>
         <% end %>
-      <% end %>
-    <p><%= l comment.created_at %></p>
+      </div>
+    <% end %>
+
+    <p class="study-record__comment-date"><%= l comment.created_at %></p>
   </li>
 <% end %>
