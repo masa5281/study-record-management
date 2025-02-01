@@ -28,7 +28,9 @@ class CommentsController < ApplicationController
   def destroy
     @comment = Comment.find(params[:id])
     @comment.destroy
-    redirect_to study_record_path(@comment.study_record), status: :see_other
+    respond_to do |format|
+      format.turbo_stream
+    end
   end
 
   private
