@@ -1,10 +1,11 @@
 <section class="study-record">
   <div class="study-record__detail">
     <div class="w-50 mx-auto d-flex flex-column justify-content-center">
-      <div class="card shadow-sm">
+      <div class="card shadow-sm mb-5">
         <div class="card-header"><h2>学習記録の詳細ページ</h2></div>
 
         <div class="card-body">
+          <%= render 'shared/flash' %>
           <dl>
             <dt class="study-record__desc-ttl mb-2">ユーザー名</dt>
             <dd class="mb-3"><%= @study_record.name %></dd>
@@ -23,11 +24,23 @@
                 <i class="fa-solid fa-pen-to-square fa-lg" title="投稿の編集"></i>
               <% end %>
               <%= link_to study_record_path(@study_record), data: { turbo_method: :delete, turbo_confirm: '本当に削除してもよろしいですか？' } do %>
-              <i class="fa-solid fa-trash fa-lg" title="投稿の削除"></i>
+                <i class="fa-solid fa-trash fa-lg" title="投稿の削除"></i>
               <% end %>
             </div>
           <% end %>
         </div>
+      </div>
+
+      <div class="study-record__comment">
+        <h3 class="fs-5 fw-bold mb-3 pb-1">コメント一覧</h3>
+        <%= render 'shared/error_messages', object: @comment %>
+        <%= form_with model: [@study_record, @comment], class: "mb-4" do |f| %>
+          <%= f.text_area :comment, placeholder: "コメントを書く", class: "form-control mb-2" %>
+          <%= f.submit 'コメントをする', class: "btn btn-primary" %>
+        <% end %>
+        <ul class="list-group">
+          <%= render partial: 'comments/comment', collection: @study_record.comments %>
+        </ul>
       </div>
     </div>
   </div>

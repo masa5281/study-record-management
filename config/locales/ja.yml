@@ -4,6 +4,7 @@ ja:
       study_recod: 学習記録
       user: ユーザ
       tag: タグ
+      comment: コメント
     attributes:
       study_record:
         name: ユーザー名
@@ -18,6 +19,8 @@ ja:
         remember_me: ログインを記憶
       tag:
         name: タグ名
+      comment:
+        comment: コメント
   time:
     formats:
       default: '%Y/%m/%d %H:%M'

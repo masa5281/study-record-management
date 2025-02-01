@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
 
   # Defines the root path route ("/")
-  resources :study_records
+  resources :study_records do
+    resources :comments, only: %i[create edit update destroy]
+  end
   resources :users, only: %i[show]
 end

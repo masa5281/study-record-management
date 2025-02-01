@@ -1,0 +1,18 @@
+<%= turbo_frame_tag dom_id(@comment) do %>
+  <li class="study-record__comment-item mb-4 list-group-item rounded">
+    <p class="border-bottom mb-3 pb-1"><%= comment.user.username %></p>
+
+    <% if current_user.id == comment.user_id %>
+      <%= form_with model: [comment.study_record, comment] do |f| %>
+        <%= render partial: 'shared/error_messages', locals: { object: comment } %>
+        <%= f.text_area :comment, autofocus: true ,class: "form-control mb-3" %>
+        <div class="text-end">
+          <%= link_to 'キャンセル', study_record_path(comment.study_record), class: "btn btn-secondary btn-sm text-white" %>
+          <%= f.submit '更新', class: "btn btn-primary btn-sm" %>
+        </div>
+      <% end %>
+    <% end %>
+
+    <p class="study-record__comment-date"><%= l comment.created_at %></p>
+  </li>
+<% end %>
